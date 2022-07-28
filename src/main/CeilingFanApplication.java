@@ -5,6 +5,8 @@ import javax.swing.*;
 public class CeilingFanApplication {
 	
 	public CeilingFanApplication() {
+		Fan fan = new Fan();
+		
 		JFrame frame = new JFrame("Ceiling Fan Application");
 		frame.setSize(300, 150);
 		frame.setLayout(new BoxLayout(frame.getContentPane(), BoxLayout.PAGE_AXIS));
@@ -17,9 +19,9 @@ public class CeilingFanApplication {
 		JPanel buttonPanel = new JPanel();
 		
 		JLabel speedLabel = new JLabel("Speed:");
-		JLabel speedValue = new JLabel("0");
+		JLabel speedValue = new JLabel(Integer.toString(fan.getSpeed()));
 		JLabel directionLabel = new JLabel("Direction:");
-		JLabel directionValue = new JLabel("Clockwise");
+		JLabel directionValue = new JLabel(fan.isClockwise() ? "Clockwise" : "Counter-Clockwise");
 		
 		speedPanel.add(speedLabel);
 		speedPanel.add(speedValue);
