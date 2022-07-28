@@ -1,6 +1,10 @@
 package main;
 
+import java.beans.PropertyChangeListener;
+import java.beans.PropertyChangeSupport;
+
 public class Fan {
+	private PropertyChangeSupport changes = new PropertyChangeSupport(this);
 	private int speed;
 	private boolean clockwise;
 	
@@ -18,13 +22,21 @@ public class Fan {
 	}
 	
 	public void changeSpeed() {
+		int oldSpeed = speed;
+		
 		speed++;
 		
 		if (speed > 3)
 			speed = 0;
+		
+		changes.firePropertyChange("speed", oldSpeed, speed);
 	}
 	
 	public void reverseDirection() {
-		clockwise = !clockwise;
+		changes.firePropertyChange("direction", clockwise, clockwise = !clockwise);
 	}
+	
+	public void addPropertyChangeListener(PropertyChangeListener listener) {
+        changes.addPropertyChangeListener(listener);
+    }
 }
