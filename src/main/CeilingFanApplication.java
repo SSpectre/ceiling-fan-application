@@ -17,6 +17,7 @@ public class CeilingFanApplication {
 		JPanel buttonPanel = new JPanel();
 		labelPanel.setLayout(new BoxLayout(labelPanel, BoxLayout.PAGE_AXIS));
 		
+		//labels will update when fan state changes
 		JLabel speedLabel = new JLabel("Speed: " + Integer.toString(fan.getSpeed()));
 		speedLabel.setAlignmentX(Component.CENTER_ALIGNMENT);
 		fan.addPropertyChangeListener(e -> {

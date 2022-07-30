@@ -25,7 +25,6 @@ public class Fan {
 		int oldSpeed = speed;
 		
 		speed++;
-		
 		if (speed > 3)
 			speed = 0;
 		
@@ -37,6 +36,6 @@ public class Fan {
 	}
 	
 	public void addPropertyChangeListener(PropertyChangeListener listener) {
-        changes.addPropertyChangeListener(listener);
+		changes.addPropertyChangeListener(listener);
     }
 }
